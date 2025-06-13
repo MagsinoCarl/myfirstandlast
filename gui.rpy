@@ -1,28 +1,10 @@
-﻿################################################################################
-## Initialization
-################################################################################
-
-## The init offset statement causes the initialization statements in this file
-## to run before init statements in any other file.
+﻿
 init offset = -2
 
-## Calling gui.init resets the styles to sensible default values, and sets the
-## width and height of the game.
 init python:
     gui.init(2560, 1440)
 
-## Enable checks for invalid or unstable properties in screens or transforms
 define config.check_conflicting_properties = True
-
-
-################################################################################Add commentMore actions
-## GUI Configuration Variables
-################################################################################
-
-
-## Colors ######################################################################
-##
-## The colors of text in the interface.
 
 init python:
     # Class to manage GUI color settings

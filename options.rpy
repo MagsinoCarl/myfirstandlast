@@ -1,15 +1,4 @@
-﻿## This file contains options that can be changed to customize your game.Add commentMore actions
-##
-## Lines beginning with two '#' marks are comments, and you shouldn't uncomment
-## them. Lines beginning with a single '#' mark are commented-out code, and you
-## may want to uncomment them when appropriate.
-
-
-## Basics ######################################################################
-
-## A human-readable name of the game. This is used to set the default window
-## title, and shows up in the interface and error reports.
-##
+﻿
 ## The _() surrounding the string marks it as eligible for translation.
 
 
@@ -34,28 +23,39 @@ define gui.about = _p("""Memoir of the Halls is a story-driven visual novel that
 """)
 
 
-## A short name for the game used for executables and directories in the built
-## distribution. This must be ASCII-only, and must not contain spaces, colons,
-## or semicolons.
+init python:
+    # Class to manage build and config settings
+    class GameConfigManager:
+        def __init__(self):
+            # Build settings
+            self.build_name = "Memoirsinthehalls"
 
-define build.name = "Memoirsinthehalls"
+            # Main menu music settings
+            self.main_menu_music = "main_theme.mp3"
+            self.main_menu_music_fadein = 1.0
 
-define config.main_menu_music = "main_theme.mp3"
+            # Sound and music settings
+            self.has_sound = True
+            self.has_music = True
+            self.has_voice = True
 
-define config.main_menu_music_fadein = 1.0  # fades in over 1 second
+        # Method to apply settings to Ren'Py's build and config namespaces
+        def apply_settings(self):
+            # Build settings
+            build.name = self.build_name
 
+            # Main menu music settings
+            config.main_menu_music = self.main_menu_music
+            config.main_menu_music_fadein = self.main_menu_music_fadein
 
+            # Sound and music settings
+            config.has_sound = self.has_sound
+            config.has_music = self.has_music
+            config.has_voice = self.has_voice
 
-## Sounds and music ############################################################
-
-## These three variables control, among other things, which mixers are shown
-## to the player by default. Setting one of these to False will hide the
-## appropriate mixer.
-
-define config.has_sound = True
-define config.has_music = True
-define config.has_voice = True
-
+    # Instantiate and apply the config settings
+    game_config_manager = GameConfigManager()
+    game_config_manager.apply_settings()
 
 ## To allow the user to play a test sound on the sound or voice channel,
 ## uncomment a line below and use it to set a sample sound to play.

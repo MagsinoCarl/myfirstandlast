@@ -134,234 +134,243 @@ transform mae_bottom_left:
     yalign 1.0
     anchor (0.0, 1.0)
     zoom 0.7
-################################################################################
-#  IMAGE_DEFINITIONS+-
-################################################################################
 
-#_backgrounds__ (make sure these files exist in /game/images/)
-image bg_gate              = "images/bg_gate.jpg"
-image bg_after_school_gate = "images/after_school_gate.jpg"
-image bg_pub_lib_door      = "images/pub_lib_door.jpg"
-image bg_guard_house       = "images/guard_house.jpg"
-image bg_room              = "images/bg_room.jpg"
-image splash_bg            = "images/splash_bg.png"
-image bg_far_view_entrance      = "images/FarViewofEntranceArea.jpg"
-image bg_new_building1     = "images/new_building1.jpg" 
-image bg_new_building2     = "images/new_building2.jpg"
-image bg_new_building3     = "images/new_building3.jpg"
-image bg_new_building4     = "images/new_building4.jpg"  
-image bg_new_building5     = "images/new_building5.jpg"
-image bg_new_building6     = "images/new_building6.jpg"
-image bg_nearing_new_building   = "images/NearingNewBuilding.jpg"
-image bg_tambayan_to_entrance   = "images/TambayanAreaGoingtoEntrance.jpg"
-image bg_circle_area_lower_view = "images/CircleAreaLowerView.jpg"
-image bg_vendor            = "images/vendor.jpg"
-image bg_vendor_view       = "images/vendor_view.jpg"
-image Enter_choice2 = "images/Enter_choice2.jpg"
-image bg_entering_hideout      = "images/Entering_hideout.jpg"
-image bg_closed_hideout_gate   = "images/Closed_hideout_area_gate.jpg"
-image bg_entering_the_school_lobby = "images/entering_the_school_lobby.jpg"
-image bg_pup_lobby = "images/pup_lobby.jpg"
-image bg_informationdesk = "images/informationdesk.jpg"
-image bg_window1 = "images/window1.jpg"
-image floor1_hallwayright = "images/floor1_hallwayright.jpg"
-image bg_acad = "images/acad.jpg"
-image bg_sas = "images/sas.jpg"
-image bg_midstair = "images/mid_boys_stairs.jpg"
-image bg_lgbt1 = "images/lgbt_cr.jpg"
-image bg_lgbt2 = "images/lgbt_door.jpg"
-image bg_lgbt3 = "images/lgbt_halfway.jpg"
-image bg_stair1 = "images/first_stair1.jpg"  
-image bg_stair2= "images/first_stair2.jpg"
-image bg_stair3= "images/first_stair3.jpg"
-image bg_stair4= "images/first_stair4.jpg"
-image bg_stair5 = "images/first_stair5.jpg"
-image bg_stair6 = "images/first_stair6.jpg"
-image fire_exit1 = "images/fire_exit1.jpg"
-image fire_exit2 = "images/fire_exit2.jpg"
-image m1 = "images/m1.jpg"
-image m2 = "images/m2.jpg"
-image m3 = "images/m3.jpg"
-image m4 = "images/m4.jpg"
-image m5 = "images/m5.jpg"
-image sf1 = "images/sf1.jpg"
-image sf2 = "images/sf2.jpg"
-image sf3 = "images/sf3.jpg"
-image sf4 = "images/sf4.jpg"
-image sf5 = "images/sf5.jpg"
-image sf6 = "images/sf6.jpg"
-image sf7 = "images/sf7.jpg"
-image sf8 = "images/sf8.jpg"
-image sf9 = "images/sf9.jpg"
-image sf10 = "images/sf10.jpg"
-image sf11 = "images/sf11.jpg"
-image sf12 = "images/sf12.jpg"
-image sf13 = "images/sf13.jpg"
-image sf14 = "images/sf14.jpg"
-image sf15 = "images/sf15.jpg"
-image sf16 = "images/sf16.png"
-image sf17 = "images/sf17.jpg"
-image floor1_midhallwayleft = "images/floor1_midhallwayleft.jpg"
-image floor1_hallwayleft = "images/floor1_hallwayleft.jpg"
-image left_halfway_ground1 = "images/left_halfway_ground1.jpg"
-image left_halfway_ground2 = "images/left_halfway_ground2.jpg"
-image left_halfway_ground3 = "images/left_halfway_ground3.jpg"
-image left_halfway_ground4 = "images/left_halfway_ground4.jpg"
-image left_halfway_ground5 = "images/left_halfway_ground5.jpg"
-image faculty_inside = "images/faculty_inside.jpg"
-image pet_cat = "images/petcat.jpg"
-image science_lab = "images/science_lab.jpg"
-image rightside_staircase = "images/rightside_staircase.jpg"
-image chair = "images/chair.jpg"
-image chair1 = "images/chair1.jpg"
-image lobbychairs = "images/lobbychairs.jpg"
+init -1 python:
+    # Class to manage all image definitions
+    class ImageManager:
+        def __init__(self):
+            # Define all image attributes as a dictionary
+            self.images = {
+                # Original Backgrounds
+                "bg_gate": "images/bg_gate.jpg",
+                "bg_after_school_gate": "images/after_school_gate.jpg",
+                "bg_pub_lib_door": "images/pub_lib_door.jpg",
+                "bg_guard_house": "images/guard_house.jpg",
+                "bg_room": "images/bg_room.jpg",
+                "splash_bg": "images/splash_bg.png",
+                "bg_far_view_entrance": "images/FarViewofEntranceArea.jpg",
+                "bg_new_building1": "images/new_building1.jpg",
+                "bg_new_building2": "images/new_building2.jpg",
+                "bg_new_building3": "images/new_building3.jpg",
+                "bg_new_building4": "images/new_building4.jpg",
+                "bg_new_building5": "images/new_building5.jpg",
+                "bg_new_building6": "images/new_building6.jpg",
+                "bg_nearing_new_building": "images/NearingNewBuilding.jpg",
+                "bg_tambayan_to_entrance": "images/TambayanAreaGoingtoEntrance.jpg",
+                "bg_circle_area_lower_view": "images/CircleAreaLowerView.jpg",
+                "bg_vendor": "images/vendor.jpg",
+                "bg_vendor_view": "images/vendor_view.jpg",
+                "Enter_choice2": "images/Enter_choice2.jpg",
+                "bg_entering_hideout": "images/Entering_hideout.jpg",
+                "bg_closed_hideout_gate": "images/Closed_hideout_area_gate.jpg",
+                "bg_entering_the_school_lobby": "images/entering_the_school_lobby.jpg",
+                "bg_pup_lobby": "images/pup_lobby.jpg",
+                "bg_informationdesk": "images/informationdesk.jpg",
+                "bg_window1": "images/window1.jpg",
+                "floor1_hallwayright": "images/floor1_hallwayright.jpg",
+                "bg_acad": "images/acad.jpg",
+                "bg_sas": "images/sas.jpg",
+                "bg_midstair": "images/mid_boys_stairs.jpg",
+                "bg_lgbt1": "images/lgbt_cr.jpg",
+                "bg_lgbt2": "images/lgbt_door.jpg",
+                "bg_lgbt3": "images/lgbt_halfway.jpg",
+                "bg_stair1": "images/first_stair1.jpg",
+                "bg_stair2": "images/first_stair2.jpg",
+                "bg_stair3": "images/first_stair3.jpg",
+                "bg_stair4": "images/first_stair4.jpg",
+                "bg_stair5": "images/first_stair5.jpg",
+                "bg_stair6": "images/first_stair6.jpg",
+                "fire_exit1": "images/fire_exit1.jpg",
+                "fire_exit2": "images/fire_exit2.jpg",
+                "m1": "images/m1.jpg",
+                "m2": "images/m2.jpg",
+                "m3": "images/m3.jpg",
+                "m4": "images/m4.jpg",
+                "m5": "images/m5.jpg",
+                "sf1": "images/sf1.jpg",
+                "sf2": "images/sf2.jpg",
+                "sf3": "images/sf3.jpg",
+                "sf4": "images/sf4.jpg",
+                "sf5": "images/sf5.jpg",
+                "sf6": "images/sf6.jpg",
+                "sf7": "images/sf7.jpg",
+                "sf8": "images/sf8.jpg",
+                "sf9": "images/sf9.jpg",
+                "sf10": "images/sf10.jpg",
+                "sf11": "images/sf11.jpg",
+                "sf12": "images/sf12.jpg",
+                "sf13": "images/sf13.jpg",
+                "sf14": "images/sf14.jpg",
+                "sf15": "images/sf15.jpg",
+                "sf16": "images/sf16.png",
+                "sf17": "images/sf17.jpg",
+                "floor1_midhallwayleft": "images/floor1_midhallwayleft.jpg",
+                "floor1_hallwayleft": "images/floor1_hallwayleft.jpg",
+                "left_halfway_ground1": "images/left_halfway_ground1.jpg",
+                "left_halfway_ground2": "images/left_halfway_ground2.jpg",
+                "left_halfway_ground3": "images/left_halfway_ground3.jpg",
+                "left_halfway_ground4": "images/left_halfway_ground4.jpg",
+                "left_halfway_ground5": "images/left_halfway_ground5.jpg",
+                "faculty_inside": "images/faculty_inside.jpg",
+                "pet_cat": "images/petcat.jpg",
+                "science_lab": "images/science_lab.jpg",
+                "rightside_staircase": "images/rightside_staircase.jpg",
+                "chair": "images/chair.jpg",
+                "chair1": "images/chair1.jpg",
+                "lobbychairs": "images/lobbychairs.jpg",
 
-image g1 = "images/g1.jpg"
-image g2 = "images/g2.jpg"
-image g3 = "images/g3.jpg"
-image g4 = "images/g4.jpg"
-image g5 = "images/g5.jpg"
-image g6 = "images/g6.jpg"
-image g7 = "images/g7.jpg"
-image g8 = "images/g8.jpg"
-image g9 = "images/g9.jpg"
-image g10 = "images/g10.jpg"
-image g11 = "images/g11.jpg"
-image g12 = "images/g12.jpg"
+                # Newly Added Images
+                "hideout_fireexit": "images/hideout_fireexit.jpg",
+                "hideout_extension": "images/hideout_extension.jpg",
 
-image hideout_fireexit = "images/hideout_fireexit.jpg"
-image hideout_extension = "images/hideout_extension.jpg"
+                # Garden and Exit
+                "bg_garden": "images/garden.jpg",
+                "bg_garden_cat": "images/view_cat.jpg",
+                "bg_garden1": "images/garden1.jpg",
+                "bg_garden2": "images/garden2.jpg",
+                "bg_garden3": "images/garden3.jpg",
+                "bg_back_garden1": "images/back_garden1.jpg",
+                "bg_exit1": "images/exit1.jpg",
+                "bg_exit2": "images/exit2.jpg",
+                "bg_exit3": "images/exit3.jpg",
+                "bg_exit4": "images/exit4.jpg",
+                "bg_exit5": "images/exit5.jpg",
+                "bg_exit6": "images/exit6.jpg",
+                "bg_exit7": "images/exit7.jpg",
+                "bg_exit8": "images/exit8.jpg",
+                "bg_exit9": "images/exit9.jpg",
+                "bg_exit10": "images/exit10.jpg",
+                "bg_fire_exit_inside1": "images/fire_exit_inside1.jpg",
+                "bg_fire_exit_inside2": "images/fire_exit_inside2.jpg",
+                "bg_fire_exit_inside3": "images/fire_exit_inside3.jpg",
+                "bg_fire_exit_inside4": "images/fire_exit_inside4.jpg",
+                "bg_fire_exit_inside5": "images/fire_exit_inside5.jpg",
+                "library1": "images/library1.jpg",
+                "library2": "images/library2.jpg",
+                "discussion": "images/discussion.jpg",
 
-# __GARDEN__ and __EXIT__ (make sure these files exist in /game/imgaes/)
-image bg_garden = "images/garden.jpg"
-image bg_garden_cat = "images/view_cat.jpg"
-image bg_garden1 = "images/garden1.jpg"
-image bg_garden2 = "images/garden2.jpg"
-image bg_garden3 = "images/garden3.jpg"
-image bg_back_garden1 = "images/back_garden1.jpg"
-image bg_exit1 = "images/exit1.jpg"
-image bg_exit2 = "images/exit2.jpg"
-image bg_exit3 = "images/exit3.jpg"
-image bg_exit4 = "images/exit4.jpg"
-image bg_exit5 = "images/exit5.jpg"
-image bg_exit6 = "images/exit6.jpg"
-image bg_exit7 = "images/exit7.jpg"
-image bg_exit8 = "images/exit8.jpg"
-image bg_exit9 = "images/exit9.jpg"
-image bg_exit10 = "images/exit10.jpg"
-image bg_fire_exit_inside1 = "images/fire_exit_inside1.jpg"
-image bg_fire_exit_inside2 = "images/fire_exit_inside2.jpg"
-image bg_fire_exit_inside3 = "images/fire_exit_inside3.jpg"
-image bg_fire_exit_inside4 = "images/fire_exit_inside4.jpg"
-image bg_fire_exit_inside5 = "images/fire_exit_inside5.jpg"
-image library1 = "images/library1.jpg"
-image library2 = "images/library2.jpg"
-image discussion = "images/discussion.jpg"
+                # Gallery Images
+                "g1": "images/g1.jpg",
+                "g2": "images/g2.jpg",
+                "g3": "images/g3.jpg",
+                "g4": "images/g4.jpg",
+                "g5": "images/g5.jpg",
+                "g6": "images/g6.jpg",
+                "g7": "images/g7.jpg",
+                "g8": "images/g8.jpg",
+                "g9": "images/g9.jpg",
+                "g10": "images/g10.jpg",
+                "g11": "images/g11.jpg",
+                "g12": "images/g12.jpg",
 
+                # Floor 2
+                "bg_floor2_halfwayright": "images/floor2_halfwayright.jpg",
 
-# _Floor 2__ (make sure these files exist in /game/images/)
-image bg_floor2_halfwayright = "images/floor2_halfwayright.jpg"
+                # Documents
+                "doc1": "doc1.jpg",
+                "doc2": "doc2.jpg",
+                "doc3": "doc3.jpg",
+                "doc4": "doc4.jpg",
 
-#___DOCUMENTS__ PROCESS___
-image doc1 = "doc1.jpg"  # Replace with actual file names
-image doc2 = "doc2.jpg"
-image doc3 = "doc3.jpg"
-image doc4 = "doc4.jpg"
+                # Additional Rooms and Areas
+                "bg_admin_office": "images/admin_office.jpg",
+                "bg_authorized_exit": "images/authorized_personnelonlyareaexit.jpg",
+                "bg_avr": "images/avr.jpg",
+                "bg_avr_door": "images/avrdoor.jpg",
+                "bg_beside_avr": "images/besideavr.jpg",
+                "bg_beside_faculty_office": "images/besidefacultyoffice.jpg",
+                "bg_cashier_window": "images/cashierwindow.jpg",
+                "clinic1": "images/clinic_inside.jpg",
+                "clinic2": "images/clinic_outside.jpg",
 
+                # Up to the 3rd Floor
+                "stair1": "images/stair1.jpg",
+                "stair2": "images/stair2.jpg",
+                "stair3": "images/stair3.jpg",
+                "stair4": "images/stair4.jpg",
+                "stair5": "images/stair5.jpg",
 
-image bg_admin_office = "images/admin_office.jpg"
-image bg_authorized_exit = "images/authorized_personnelonlyareaexit.jpg"
-image bg_avr = "images/avr.jpg"
-image bg_avr_door = "images/avrdoor.jpg"
-image bg_beside_avr = "images/besideavr.jpg"
-image bg_beside_faculty_office = "images/besidefacultyoffice.jpg"
-image bg_cashier_window = "images/cashierwindow.jpg"
-image clinic1 = "images/clinic_inside.jpg"
-image clinic2 = "images/clinic_outside.jpg"
+                # Third Floor Hallways
+                "hallway1": "images/hallway1.jpg",
+                "hallway2": "images/hallway2.jpg",
+                "hallway3": "images/hallway3.jpg",
+                "hallway4": "images/hallway4.jpg",
+                "hallway5": "images/hallway5.jpg",
+                "hallway6": "images/hallway6.jpg",
+                "hallway7": "images/hallway7.jpg",
+                "hallway8": "images/hallway8.jpg",
+                "hallway9": "images/hallway9.jpg",
 
+                # Room 307 Scene
+                "room307_1": "images/room307_1.jpg",
+                "room307_2": "images/room307_2.jpg",
+                "room307_3": "images/room307_3.jpg",
 
-# Up to the 3rd Floor
-image stair1 = "images/stair1.jpg"
-image stair2 = "images/stair2.jpg"
-image stair3 = "images/stair3.jpg"
-image stair4 = "images/stair4.jpg"
-image stair5 = "images/stair5.jpg"
+                # Girl's CR
+                "girls1": "images/girls1.jpg",
+                "girls2": "images/girls2.jpg",
+                "girls3": "images/girls3.jpg",
+                "girls4": "images/girls4.jpg",
 
-# Third floor left to the right
-image hallway1 = "images/hallway1.jpg"
-image hallway2 = "images/hallway2.jpg"
-image hallway3 = "images/hallway3.jpg"
-image hallway4 = "images/hallway4.jpg"
-image hallway5 = "images/hallway5.jpg"
-image hallway6 = "images/hallway6.jpg"
-image hallway7 = "images/hallway7.jpg"
-image hallway8 = "images/hallway8.jpg"
-image hallway9 = "images/hallway9.jpg"
+                # Rooms
+                "room1": "images/room1.jpg",
+                "room2": "images/room2.jpg",
 
-# Room 305 Scene
-image room307_1 = "images/room307_1.jpg"
-image room307_1 = "images/room307_1.jpg"
-image room307_1 = "images/room307_1.jpg"
-image room307_1 = "images/room307_1.jpg" 
+                # Fourth Floor
+                "1": "images/1.jpg",
+                "2": "images/2.jpg",
+                "3": "images/3.jpg",
 
-# Room 307 Scene
-image room307_1 = "images/room307_1.jpg"
-image room307_2 = "images/room307_2.jpg"
-image room307_3 = "images/room307_3.jpg"
+                # 4th Hallway
+                "f1": "images/f1.jpg",
+                "f2": "images/f2.jpg",
+                "f3": "images/f3.jpg",
+                "f4": "images/f4.jpg",
+                "f5": "images/f5.jpg",
+                "f6": "images/f6.jpg",
+                "f7": "images/f7.jpg",
+                "f8": "images/f8.jpg",
+                "f9": "images/f9.jpg",
+                "f10": "images/f10.jpg",
+                "f11": "images/f11.jpg",
 
-# Girl's CR
-image girls1 = "images/girls1.jpg"
-image girls2 = "images/girls2.jpg"
-image girls3 = "images/girls3.jpg"
-image girls4 = "images/girls4.jpg"
+                # Fourth Room
+                "comlab": "images/comlab.jpg",
+                "comhardware": "images/comhardware.jpg",
+                "housekeeping_room": "images/housekeeping_room.jpg",
+                "travel_and_tours_room1": "images/travel_and_tours_room1.jpg",
+                "travel_and_tours_room2": "images/travel_and_tours_room2.jpg",
+                "student_org1": "images/student_org1.jpg",
+                "hm_storage_room1": "images/hm_storage_room1.jpg",
+                "kitchen_lab2": "images/kitchen_lab2.jpg",
+                "proj": "images/proj.jpg",
+                "food_and_bev_room2": "images/food_and_bev_room2.jpg",
+                "csc_room1": "images/csc_room1.jpg",
+                "csc_room2": "images/csc_room2.jpg",
+                "lab_management": "images/lab_management.jpg",
+                "standard_room": "images/standard_room.jpg",
+                "deluxe": "images/deluxe.jpg",
 
-# Rooms
-image room1 = "images/room1.jpg"
-image room2 = "images/room2.jpg"
+                # Roof Deck
+                "rf1": "images/rf1.jpg",
+                "rf2": "images/rf2.jpg",
+                "rf3": "images/rf3.jpg",
+                "rf4": "images/rf4.jpg",
+                "rf5": "images/rf5.jpg"
+            }
 
-# Fourth Floor
-image 1 = "images/1.jpg"
-image 2 = "images/2.jpg"
-image 3 = "images/3.jpg"
+        # Method to register images with Ren'Py
+        def register_images(self):
+            for image_name, file_path in self.images.items():
+                renpy.image(image_name, file_path)
 
-# 4th Hallway
-image f1 = "images/f1.jpg"
-image f2 = "images/f2.jpg"
-image f3 = "images/f3.jpg"
-image f4 = "images/f4.jpg"
-image f5 = "images/f5.jpg"
-image f6 = "images/f6.jpg"
-image f7 = "images/f7.jpg"
-image f8 = "images/f8.jpg"
-image f9 = "images/f9.jpg"
-image f10 = "images/f10.jpg"
-image f11 = "images/f11.jpg"
-
-# Fourth Room
-image comlab = "images/comlab.jpg"
-image comhardware = "images/comhardware.jpg"
-image housekeeping_room = "images/housekeeping_room.jpg"
-image travel_and_tours_room1 = "images/travel_and_tours_room1.jpg"
-image travel_and_tours_room2 = "images/travel_and_tours_room2.jpg"
-image student_org1 = "images/student_org1.jpg"
-image hm_storage_room1 = "images/hm_storage_room1.jpg"
-image kitchen_lab2 = "images/kitchen_lab2.jpg"
-image proj = "images/proj.jpg"
-image food_and_bev_room2 = "images/food_and_bev_room2.jpg"
-image csc_room1 = "images/csc_room1.jpg"
-image csc_room2 = "images/csc_room2.jpg"
-image lab_management = "images/lab_management.jpg"
-image standard_room = "images/standard_room.jpg"
-image deluxe = "images/deluxe.jpg"
-
-# Roof Deck
-image rf1 = "images/rf1.jpg"
-image rf2 = "images/rf2.jpg"
-image rf3 = "images/rf3.jpg"
-image rf4 = "images/rf4.jpg"
-image rf5 = "images/rf5.jpg"
+    # Instantiate and register the images
+    image_manager = ImageManager()
+    image_manager.register_images()
 
 default visited_sas = False
+default visited_library = False
+default visited_stone_circle = False
 
 init python:
     class CharacterImages:
